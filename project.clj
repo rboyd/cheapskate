@@ -3,4 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.4.0"]])
+  :resource-paths ["etc"]
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [clj-http "0.6.0"]
+                 [sonian/carica "1.0.0"]])
