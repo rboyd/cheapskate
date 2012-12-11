@@ -6,4 +6,5 @@
   :resource-paths ["etc"]
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [clj-http "0.6.0"]
+                 [enlive "1.0.0-SNAPSHOT"]
                  [sonian/carica "1.0.0"]])
