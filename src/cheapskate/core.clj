@@ -21,3 +21,8 @@
 
 (defn get-domains []
   (-> (xml-from-api "namecheap.domains.getList" {:PageSize 100}) parse-response unbox-domains))
+
+(defn set-contacts [domain params]
+  (xml-from-api "namecheap.domains.setContacts" (merge {:DomainName domain}
+                                                       (config :contacts)
+                                                       params)))
