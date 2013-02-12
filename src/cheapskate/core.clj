@@ -26,3 +26,13 @@
   (xml-from-api "namecheap.domains.setContacts" (merge {:DomainName domain}
                                                        (config :contacts)
                                                        params)))
+
+(defn dns-setdefault [domain]
+  (let [[sld tld] (clojure.string/split domain #"\.")]
+    (xml-from-api "namecheap.domains.dns.setDefault" (merge {:SLD sld :TLD tld}))))
+
+(defn dns-sethosts [domain address]
+  (let [[sld tld] (clojure.string/split domain #"\.")]
+    (xml-from-api "namecheap.domains.dns.setHosts" (merge {:SLD sld :TLD tld
+                                                           :HostName1 "@" :RecordType1 "A" :Address1 address
+                                                           :HostName2 "www" :RecordType2 "A" :Address2 address}))))
